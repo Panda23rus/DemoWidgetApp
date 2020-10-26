@@ -1,0 +1,26 @@
+<div class=chart-wrapper>
+    <div *ngFor="let chart of charts;let i=index">
+        <mat-card class="chart-card">
+            <mat-card-header class="header">
+                <div class="settings">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>settings</mat-icon>
+                      </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item [matMenuTriggerFor]="chart_type">Chart type</button>
+                        <button mat-menu-item (click)="selectSensor(chart,i)">Selection of sensor</button>
+                        <button mat-menu-item (click)="changeColor(chart,i)">Color of lines</button>
+                    </mat-menu>
+                    <mat-menu #chart_type="matMenu"> 
+                        <button mat-menu-item (click)="changeType('spline',chart,i)">Line</button>
+                        <button mat-menu-item (click)="changeType('bar',chart,i)">Bar</button>
+                    </mat-menu>
+                </div>
+            </mat-card-header>
+            <mat-card-content>
+                <highcharts-chart [Highcharts]="Highcharts" [options]=chart.options></highcharts-chart>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

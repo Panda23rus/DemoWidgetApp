@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+    <p>Choose your favorite color</p>
+    <mat-form-field>
+        <input matInput [ngxMatColorPicker]="picker" [(ngModel)]="data.color">
+        <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+        <ngx-mat-color-picker #picker [touchUi]="touchUi" [color]="data.color"></ngx-mat-color-picker>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.color" cdkFocusInitial>Ok</button>
+</div>

@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+    <p>Choose your sensors</p>
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let sensor of data.sensors">
+            <mat-checkbox [(ngModel)]="sensor.checked">
+              {{sensor.name}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.sensors" cdkFocusInitial>Ok</button>
+</div>
